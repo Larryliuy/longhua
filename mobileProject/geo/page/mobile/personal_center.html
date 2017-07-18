@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <script src="../../../resources/lib/zepto.min.js"></script>
+    <script src="../../../resources/lib/setHtmlFontSize.js"></script>
+    <title>个人中心</title>
+    <style>
+        html,body{
+            margin: 0px;
+            padding: 0px;
+            background-color: #f2f2f2;
+        }
+        header{
+            text-align: center;
+            width: 100%;
+            height: 6.311rem;
+            /*line-height: 2rem;*/
+            /*background-color: #FFFFFF;*/
+            background: linear-gradient(#a21fdf,#0ca4f1);
+            /*background: linear-gradient(rgba(162,31,223,0.73),#0ca4f1);*/
+        }
+        .backBtn{
+            position: absolute;
+            top: 1.1rem;
+            left: 1.3rem;
+            display: inline-block;
+            font-size: 0.622rem;
+            line-height: 0.622rem;
+            color: #666666;
+        }
+        .backBtn > a{
+            text-decoration: none;
+            color: #666666;
+        }
+        .backBtn img{
+            position: absolute;
+            left: -0.625rem;
+            width: 0.333rem;
+            height: 0.622rem;
+        }
+        .addType{
+            position: absolute;
+            font-size: 0.622rem;
+            top: 0.5rem;
+            right: 1rem;
+            color: #666666;
+        }
+        .addType img{
+            width: 0.711rem;
+            height: 0.533rem;
+            margin-top: 0.6rem;
+        }
+        .userAvatar{
+            padding-top: 1.422rem;
+        }
+        .userAvatar > img{
+            width: 2.155rem;
+            height: 2.155rem;
+            border-radius: 1rem;
+        }
+        .userAvatar > p{
+            font-size: 0.711rem;
+            padding: 0px;
+            margin: 0px;
+            margin-top: 0.5rem;
+            color: #FFFFFF;
+        }
+
+        .personalListBox{
+            margin-top: 0.27rem;
+        }
+        .personalList{
+            list-style-type: none;
+            width: 100%;
+            padding: 0px;
+        }
+        .item{
+            width: 91.7%;
+            height: 2.05rem;
+            line-height: 2.05rem;
+            display:flex;
+            justify-content: space-between;
+            padding:0 4.15%;
+            background-color: #FFFFFF;
+            margin-top: 0.09rem;
+        }
+        .item img{
+            width: 0.311rem;
+            height: 0.622rem;
+        }
+        .itemTitle{
+            font-size: 0.622rem;
+            color: #666666;
+        }
+        .signOut > button{
+            width: 100%;
+            line-height: 2.133rem;
+            border: none;
+            -webkit-user-select: none;
+            background-color: #FFFFFF;
+            font-size: 0.622rem;
+            color: #666666;
+            outline: none;
+        }
+        .signOut > button:after{
+            background-color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="backBtn"><a href="javascript:if(history.length>0)history.back()"><img src="../../../resources/static/images/patrol/back_w.png"></a></span>
+    <span class="addType"><img src="../../../resources/static/images/patrol/nomessage.png"></span>
+    <div class="userAvatar">
+        <img src="../../../resources/static/images/patrol/nomessage.png">
+        <p>警员-王撕葱</p>
+    </div>
+</header>
+<div class="personalListBox">
+    <ul class="personalList">
+        <li class="item" value = '1' style="border-bottom: 1px solid #dddddd;border-top: 1px solid #dddddd">
+            <div class="itemTitle">高级搜索</div>
+            <div><img src="../../../resources/static/images/patrol/patrol_open.png"></div>
+        </li>
+        <li class="item" value = '4' style="border-bottom: 1px solid #dddddd">
+            <div class="itemTitle">模拟演练</div>
+            <div><img src="../../../resources/static/images/patrol/patrol_open.png"></div>
+        </li>
+        <li class="item" value = '5' style="border-bottom: 1px solid #dddddd">
+            <div class="itemTitle">巡逻</div>
+            <div><img src="../../../resources/static/images/patrol/patrol_open.png"></div>
+        </li>
+        <li class="item" value = '3' style="border-bottom: 1px solid #dddddd">
+            <div class="itemTitle">案件管理</div>
+            <div><img src="../../../resources/static/images/patrol/patrol_open.png"></div>
+        </li>
+        <li class="item" value = '2' style="border-bottom: 1px solid #dddddd">
+            <div class="itemTitle">预案管理</div>
+            <div><img src="../../../resources/static/images/patrol/patrol_open.png"></div>
+        </li>
+    </ul>
+</div>
+<div class="signOut">
+    <button>退出登录</button>
+</div>
+<script src="/resources/static/js/setDomain.js"></script>
+<script>
+    console.log(window.innerHeight);
+    $('.personalList').on('tap',function (e) {
+        var selectText = $(e.target).text() || $(e.target).children(':first-child').text() || $(e.target).parent().prev().text() || $(e.target).prev().text();
+        console.log(selectText);
+        switch (selectText.trim()){
+            case '高级搜索':
+                window.location.href = '/mobile/index';
+                break;
+            case '模拟演练':
+                window.location.href = '/mobile/index?s=1';
+                break;
+            case '巡逻':
+                window.location.href = 'http://10.1.1.174:9508/patrol/page/patrol';
+                break;
+            case '案件管理':
+                window.location.href = '#';
+                break;
+            case '预警管理':
+                window.location.href = '#';
+                break;
+            default:break;
+        }
+    });
+</script>
+</body>
+</html>

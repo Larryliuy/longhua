@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>综合搜索</title>
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/search.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+    <header class="justify">
+        <div class="back mid">
+            <img src="/resources/static/images/arrow-left.png" alt="返回">
+        </div>
+        <div class="input-group justify">
+            <div class="icon mid">
+                <img src="/resources/static/images/search2.png" alt="搜索">
+            </div>
+            <form data-action="/location/search" method="post" autocomplete="off">
+                <input type="text" class="searchIpt" name="searchKey" placeholder="请输入搜索关键字">
+            </form>
+            <div class="icon delete mid none">
+                <img src="/resources/static/images/delete.png" alt="清空">
+            </div>
+        </div>
+        <button class="searchBtn">搜索</button>
+    </header>
+    <section>
+        <!--搜索结果-->
+        <div class="searchResult">
+            <div class="search-tip none">没有搜到与“<span class="noResult"></span>”相关的结果</div>
+            <ul class="list"></ul>
+        </div>
+
+        <!--历史记录-->
+        <div class="history">
+            <ul class="list"></ul>
+            <div class="clearHistory">清空历史记录</div>
+        </div>
+    </section>
+    <script src="/resources/lib/zepto.min.js"></script>
+    <script src="/resources/static/js/plugin.js"></script>
+    <script src="/resources/static/js/setDomain.js"></script>
+    <script src="/resources/static/js/search.js"></script>
+</body>
+</html>

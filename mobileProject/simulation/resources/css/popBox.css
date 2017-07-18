@@ -1,0 +1,64 @@
+/*确认弹窗*/
+.bgGray{
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    /*opacity: 0.3;*/
+    z-index: 10;
+    display: none;
+}
+.popBox{
+    position: fixed;
+    display: flex;
+    top: 8rem;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    height: 7.822rem;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #FFFFFF;
+    border-radius: 0.2rem;
+}
+.popBox > p ,.popBox > input{
+    font-size: 0.711rem;
+    color: #999999;
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+.popBox > input{
+    border-radius: 0.2rem;
+    border: 1px solid #999999;
+    width: 80%;
+    height: 1.2rem;
+    font-size: 0.622rem;
+}
+.editTitle{
+    padding: 0rem;
+    margin: 0rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #666666;
+    font-weight: normal;
+}
+.btnGroup{
+    width: 86%;
+    display: flex;
+    justify-content: space-between;
+}
+.btnGroup > button{
+    width: 43%;
+    height: 1.8rem;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0.1rem;
+}
+.btnCancel{
+    background-color: #959595;
+}
+.btnConfirm{
+    background-color: #2fa1db;
+}

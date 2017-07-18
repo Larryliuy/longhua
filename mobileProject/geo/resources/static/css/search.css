@@ -1,0 +1,108 @@
+header{
+    height: 0.8rem;
+    /*line-height: 0.8rem;*/
+    /*font-size: 0.28rem;*/
+    letter-spacing: 0.02rem;
+    margin-top: 0.2rem;
+    background-color: inherit;
+}
+
+.back{
+    height: 100%;
+    padding-right: 0.25rem;
+}
+
+.back img{
+    width: 0.15rem;
+}
+
+.input-group{
+    flex: 1;
+    height: 100%;
+    border-radius: 0.1rem;
+}
+
+.icon img{
+    width: 0.26rem;
+}
+
+.searchBtn{
+    width: 1rem;
+    height: 90%;
+    outline: none;
+    border: none;
+    border-radius: 0.1rem;
+    margin-left: 0.2rem;
+    color: #FFFFFF;
+    font-size: 0.28rem;
+    letter-spacing: 0.05rem;
+    background-color: #2FA1DB;
+}
+
+section{
+    position: absolute;
+    top: 1.2rem;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: inherit;
+}
+
+/*历史记录列表*/
+.history{
+    background-color: #FFFFFF;
+}
+
+.clearHistory,.search-tip{
+    text-align: center;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+
+/*搜索结果列表*/
+.noResult{
+    color: orange;
+}
+
+.hasResult{
+    color: #2FA1DB;
+}
+
+/*搜索结果列表*/
+.list{
+    background-color: #FFFFFF;
+}
+
+.list li{
+    display: flex;
+    align-items: center;
+    padding: 0.15rem 0.32rem;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.list img{
+    width: 0.3rem;
+    margin-right: 0.2rem;
+}
+
+.infoBox{
+    width: 0;
+    flex: 1;
+}
+
+.infoBox p{
+    margin: 0.05rem 0;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #999999;
+    font-size: 0.27rem;
+}
+
+p.name{
+    font-size: 0.3rem;
+}
+
+
+

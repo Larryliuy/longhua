@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/index.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+<!--顶部搜索框-->
+<header>
+    <div class="input-group justify">
+        <div class="icon mid">
+            <img src="/resources/static/images/search1.png" alt="搜索">
+        </div>
+        <input class="search" type="text" placeholder="查找地点、建筑、公交">
+        <div class="icon delete mid none">
+            <img src="/resources/static/images/delete.png" alt="">
+        </div>
+    </div>
+</header>
+
+<!--地图图标-->
+<div class="mapImg">
+    <div class="imgGroup">
+        <img class="satellite" src="/resources/static/images/map/satellite.png" alt="">
+        <img class="2d" src="/resources/static/images/map/2d.png" alt="">
+        <img class="3d show" src="/resources/static/images/map/3d.png" alt="">
+    </div>
+    <div class="imgGroup">
+        <img class="acreage" src="/resources/static/images/map/acreage.png" alt="">
+        <img class="distance" src="/resources/static/images/map/distance.png" alt="">
+        <img class="height show" src="/resources/static/images/map/height.png" alt="">
+    </div>
+    <div class="imgGroup">
+        <img class="across" src="/resources/static/images/map/across.png" alt="">
+        <img class="small" src="/resources/static/images/map/small.png" alt="">
+        <img class="upDown" src="/resources/static/images/map/upDown.png" alt="">
+        <img class="left" src="/resources/static/images/map/left.png" alt="">
+        <img class="right" src="/resources/static/images/map/right.png" alt="">
+    </div>
+</div>
+
+<!--地图-->
+<iframe src="" id="map" name="map"></iframe>
+
+<!--搜索页面-->
+<iframe src="" id="page" name="page"></iframe>
+
+<!--定位，个人中心-->
+<img class="position" src="/resources/static/images/position2.png" alt="">
+<img class="user" src="/resources/static/images/user.png" alt="">
+
+<!--底部-->
+<div class="drag">
+    <div class="drag_bar"></div>
+    <div class="drag_container">
+        <iframe src="/mobile/advancedSearch" id="footer" name="footer" ></iframe>
+    </div>
+</div>
+<script src="/resources/lib/zepto.min.js"></script>
+<script src="/resources/lib/jquery.drag.js"></script>
+<script src="/resources/static/js/plugin.js"></script>
+<script src="/resources/static/js/setDomain.js"></script>
+<script src="/resources/static/js/index.js"></script>
+<script src="/resources/static/js/navgatorLink.js"></script>
+</body>
+</html>

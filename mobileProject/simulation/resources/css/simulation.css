@@ -1,0 +1,485 @@
+*{ margin: 0;padding: 0; }
+html,body{overflow-x: hidden;overflow-y: hidden}
+::-webkit-scrollbar-track-piece {  
+    background-color:#f1f1f1;  
+    border-left:1px solid #f1f1f1; 
+    border-radius: 2px; 
+}  
+::-webkit-scrollbar {  
+    width:6px;  
+    height:6px; 
+}  
+::-webkit-scrollbar-thumb {  
+    background-color:#c2c2c2;  
+    background-clip:padding-box;  
+    border:1px solid #c2c2c2;
+    min-height:28px;  
+}  
+::-webkit-scrollbar-thumb:hover {  
+    border:1px solid #c2c2c2;  
+    background-color:#c2c2c2;  
+}
+
+/*返回样式*/
+.search_back{
+	position: absolute;
+	width: 262px;
+	height: 40px;
+	background-color: #FFFFFF;
+	background-color: #ffffff;
+	line-height: 40px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.search_back a p{
+	color: #169dfb;
+	font-size: 12px;
+	margin-left: 20px;
+}
+a{
+	text-decoration: none;
+}
+ul li{
+	list-style-type:none;
+} 
+
+.archives_list{
+	position: absolute;
+	top: 50px;
+	width: 264px;
+	height: 100%;
+	/*background-color: #FFFFFF;*/
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+.drillExamples{
+	height: 360px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+}
+.drillType{
+	/*height: 340px;*/
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+}
+.modelTypeDelete{
+	height: 360px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+}
+.modelType{
+	/*height: 400px;*/
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+}
+.archives_list ul li{
+	cursor: pointer;
+}
+.historical_archives{
+	position: relative;
+	width: 100%;
+	height: 46px;
+	line-height: 46px;
+	font-size: 14px;
+	color: #199bf9;
+	border-top: 1px solid #c1c1c1;
+	display: flex;
+	cursor: pointer;
+	background-color: #FFFFFF;
+}
+.historical_archives img{
+	height:14px ;
+	position: absolute;
+	left: 20px;
+	top: 16px;
+}
+.historical_archives p{
+	margin-left: 50px;
+}
+.historical_archives span{
+	position: absolute;
+	color: #565555 !important;
+	font-size: 14px;
+	right: 20px;
+}
+.historical_archives span input{
+	display: block;
+	margin-top: -30px;
+	margin-left: 30px;
+}
+.historical_archives ul{
+	width: 262px;
+}
+.moder_mg p{
+	margin-left:20px;
+}
+.list_title{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #FFF5F5;
+	border-top: 1px solid #c1c1c1;
+	font-size: 0.875em;
+	cursor: pointer;
+}
+.list_title_t{
+	height: 24px;
+	line-height: 28px;
+}
+.checkBox{
+	box-sizing: border-box;
+	padding-left: 20px;
+}
+.list_title span{
+	position: absolute;
+	display: inline-block;
+	right: 21px;
+	bottom: 0px;
+}
+.list_title span img{
+	cursor: pointer;
+}
+.deleteIcon{
+	bottom: -8px !important;
+}
+.list_title b{
+	padding-left: 20px;
+}
+.createTime, .createPerson{
+	width: 262px;
+	height: 24px;
+	line-height: 24px;
+	background-color: #FFF5F5;
+	font-size: 0.75em;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.list_title_last{
+	/*border-bottom: 1px solid #c1c1c1;*/
+}
+.list_title_active{
+	background-color: #f5f3f4;
+}
+.lastLiner{
+	border-bottom: 1px solid #c1c1c1;
+}
+.query_house{
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+.query_house_active{
+	display: block;
+}
+
+table{
+	margin: 5% 2%;
+	width: 90%;
+	height: 90%;
+	text-align: center;
+}
+table tr td{
+	width:50px;
+	padding:3px 0px;
+	cursor: pointer;
+}
+table p{
+	font-size: 12px;
+}
+
+.modelManagement,.deleteModel{
+	text-align: center;
+	width: 264px;
+	height: 40px;
+	color: #ffffff;
+	line-height: 40px;
+	border-right: 1px solid #C1C1C1;
+	background-color: #138ee2;
+	position: fixed;
+	bottom: 0px;
+	cursor: pointer;
+}
+
+/*分页*/
+.query_result_page{
+	cursor: pointer;
+	width: 264px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #c1c1c1;
+	text-align: center;
+	font-size: 12px;
+	position: fixed;
+	bottom: 40px;
+	z-index: 2;
+}
+
+.addClassification,.addDrill{
+	font-size: 12px;
+	width: 264px;
+	height: 40px;
+	line-height: 40px;
+	border-top: 1px solid #C1C1C1;
+	background-color: #f5f3f4;
+	position: fixed;
+	bottom: 0px;
+	color: #000000;
+	cursor: pointer;
+}
+.addClassification{
+	bottom: 0px;
+}
+.addDrill{
+	bottom: 0px;
+}
+.addClassification p,.addDrill p{
+	margin-left: 20px;
+}
+.addClassification img,.addDrill img{
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
+/*历史演练*/
+.editDiv{
+	background-color: #FFFFFF;
+	text-align: center;
+	position: absolute;
+	width: 60px;
+	height: 81px;
+	top: 15px;
+	right: 30px;
+	z-index: 1;
+	display: none;
+}
+.editDiv ul li{
+	line-height: 26px;
+	border: 1px solid #C1C1C1;
+	border-collapse: collapse;
+	border-bottom-width: 0px;
+	cursor: pointer;
+}
+.editDiv ul li:last-child{
+	border-bottom-width: 1px;
+}
+.query_house table tr td{
+	height: 16px;
+}
+.query_house table tr td img{
+	width: 45px;
+	height: 45px;
+}
+.relationp{
+	position: relative;
+	overflow: hidden;
+	width: 76px;
+	height: 14px;
+}
+.relationa{
+	position: relative;
+}
+.box1 { 
+    display: none !important; 
+} 
+
+.box1 + label { 
+    background-color: #FFF; 
+    border: 1px solid #C1CACA; 
+    width: 14px;
+    height: 14px;
+    border-radius: 3px; 
+    display: inline-block; 
+    position: relative; 
+    margin-right: 40px;
+    box-sizing: border-box;
+} 
+.box1:checked + label { 
+    background-color: #ECF2F7; 
+    border: 1px solid #92A1AC; 
+    color: #243441; 
+    padding: 0;
+} 
+ 
+.box1:checked + label:after { 
+    content: '\2714';
+    position: absolute;
+    top: -3px;
+    left: 1px;
+}
+.box2:checked + label:after{
+	content: '\2714';
+    position: absolute;
+    top: -14px;
+    left: 1px;
+    font-weight: 400;
+}
+.box3:checked + label:after{
+	content: '\2714';
+    position: absolute;
+    top: -17px;
+    left: 1px;
+    font-weight: 500;
+}
+
+.span1{
+	position: absolute;
+	left: 27px;
+	top: -1px;
+	font-size: 0.875em;
+}
+.span2{
+	position: absolute;
+	width: 36px;
+	left: 16px;
+	top: -2px;
+	font-size: 0.875em !important;
+}
+.span3{
+	position: absolute;
+	left: 38px;
+	top: -1px;
+	font-size: 0.875em;
+}
+
+/*弹出框样式*/
+.popBox,.editBox{
+	position: absolute;
+	top: 160px;
+	left: 12px;
+	z-index: 11;
+	width: 236px;
+	height: 136px;
+	border: 1px solid #c1c1c1;
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	box-shadow: rgba(255,250,232,0.3);
+	display: none;
+}
+.confirmBox{
+	position: absolute;
+	top: 160px;
+	left: 12px;
+	z-index: 11;
+	width: 236px;
+	height: 136px;
+	border: 1px solid #c1c1c1;
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	box-shadow: rgba(255,250,232,0.3);
+	display: none;
+}
+.popBox table tr,.editBox table tr{
+	width: 200px !important;
+	height: 26px !important;
+}
+.confirmBox table tr{
+	width: 200px !important;
+	height: 26px !important;
+}
+.closeIcon,.closeIcon1,.closeIcon2{
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+.confirmText{
+	margin-left: 80px;
+	width: 60px;
+}
+.popBox table button{
+	width: 60px;
+	height: 26px;
+}
+.editBox table button{
+	width: 60px;
+	height: 26px;
+}
+.confirmBox table button{
+	width: 60px;
+	height: 26px;
+}
+.table{
+	width: 200px !important;
+	margin-left: 20px !important;
+}
+.table input{
+	/*outline: hidden !important;*/
+	border: none !important;
+	margin-left: 20px !important;
+}
+.cancelBtn,.confirmBtn,.confirmBtnEdit,.cancelBtnEdit{
+	border: none;
+	margin-top: 18px;
+	margin-left: -75px;
+	color: #ffffff;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.cancelCBtn,.confirmCBtn{
+	border: none;
+	margin-top: 18px;
+	margin-left: -20px;
+	color: #ffffff;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.cancelBtn,.cancelCBtn,.cancelBtnEdit{
+	background-color: #1a7af8;
+}
+.confirmBtn,.confirmCBtn,.confirmBtnEdit{
+	background-color: #fb821b;
+}
+
+/*演练名称弹出框*/
+.saveExe{
+	position: absolute;
+	top: 160px;
+	left: 10px;
+	z-index: 11;
+	width: 236px;
+	height: 200px;
+	border: 1px solid #c1c1c1;
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	box-shadow: rgba(255,250,232,0.3);
+	display: none;
+	text-align: center;
+}
+.saveExe table tr{
+	width: 230px !important;
+	height: 26px !important;
+}
+th{
+	text-align: center;
+}
+.saveExe table button{
+	width: 60px;
+	height: 26px;
+}
+.cancelBtn,.confirmBtn{
+	border: none;
+	margin-top: 10px;
+	margin-left: -95px;
+	color: #ffffff;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.cancelBtn{
+	background-color: #1a7af8;
+}
+.confirmBtn{
+	background-color: #fb821b;
+}
+.classicExe{
+	margin-left: 20px;
+	height:26px;
+}

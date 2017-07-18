@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>城市道路</title>
+    <link rel="stylesheet" href="/resources/lib/pure-min.css">
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/searchPage.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="back">
+        <img src="/resources/static/images/arrow-left.png" alt="返回">
+        <span>返回</span>
+    </div>
+    <p class="title">城市道路</p>
+</header>
+<section>
+    <form class="pure-form pure-form-stacked" data-action="/road/search" method="post">
+        <div class="form-group pure-g">
+            <label for="searchKey" class="pure-u-1">关键字</label>
+            <input id="searchKey" class="pure-u-1" name="searchKey" type="text">
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="minL" class="pure-u-1">道路长度</label>
+            <input type="text" id="minL" class="pure-u-5-12" name="minL">
+            <span class="pure-u-1-12 mid">一</span>
+            <input type="text" id="maxL" class="pure-u-5-12" name="maxL">
+            <span class="pure-u-1-12 mid">m</span>
+        </div>
+
+        <div class="form-group pure-g">
+            <span class="pure-u-1 pure-button submit">搜索</span>
+        </div>
+    </form>
+</section>
+<script src="/resources/lib/zepto.min.js"></script>
+<script src="/resources/static/js/plugin.js"></script>
+<script src="/resources/static/js/setDomain.js"></script>
+<script src="/resources/static/js/searchPage.js"></script>
+</body>
+</html>

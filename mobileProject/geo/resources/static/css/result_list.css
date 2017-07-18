@@ -1,0 +1,42 @@
+body{
+    background-color: #FFFFFF;
+}
+/*结果列表*/
+.resultList li{
+    display: flex;
+    padding: 0.1rem 0.32rem;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.infoBox{
+    width: 0;
+    flex: 1;
+}
+
+.infoBox p{
+    margin: 0.05rem 0;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #999999;
+}
+
+p.name{
+    font-size: 0.34rem;
+    color: #666666;
+}
+
+.iconBox{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 0.2rem;
+}
+
+.near{
+    margin-right: 0.1rem;
+}
+
+.iconBox img{
+    height: 0.5rem;
+}

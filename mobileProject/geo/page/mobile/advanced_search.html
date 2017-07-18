@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高级搜索</title>
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/advanced_search.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+<!--高级搜索-->
+<div class="advancedSearch-content">
+    <div class="advancedSearch-content-box">
+        <div><a href="javascript:;" data-href="/mobile/areaSearch"><img src="/resources/static/images/advanceSearch/area.png" alt="地区区域"></a><p>地区区域</p></div>
+        <div><a href="javascript:;" data-href="/mobile/policeSearch"><img src="/resources/static/images/advanceSearch/police.png" alt="公安机关"></a><p>公安机关</p></div>
+        <div><a href="javascript:;" data-href="/mobile/govOfficeSearch"><img src="/resources/static/images/advanceSearch/VIU.png" alt="重点单位"></a><p>重点单位</p></div>
+        <div><a href="javascript:;" data-href="/mobile/importantPlaceSearch"><img src="/resources/static/images/advanceSearch/VIA.png" alt="重点场所"></a><p>重点场所</p></div>
+    </div>
+    <div class="advancedSearch-content-box">
+        <div><a href="javascript:;" data-href="/mobile/VIPSearch"><img src="/resources/static/images/advanceSearch/VIP.png" alt="重点人员"></a><p>重点人员</p></div>
+        <div><a href="javascript:;" data-href="/mobile/police_planSearch"><img src="/resources/static/images/advanceSearch/policePlan.png" alt="出警规划"></a><p>出警规划</p></div>
+        <div><a href="javascript:;" data-href="/mobile/police_resourcesSearch"><img src="/resources/static/images/advanceSearch/policeResources.png" alt="警力资源"></a><p>警力资源</p></div>
+        <div><a href="javascript:;" data-href="/mobile/police_workSearch"><img src="/resources/static/images/advanceSearch/policeWork.png" alt="警务业务"></a><p>警务业务</p></div>
+    </div>
+    <div class="advancedSearch-content-box">
+        <div><a href="javascript:;" data-href="/mobile/roadSearch"><img src="/resources/static/images/advanceSearch/road.png" alt="城市道路"></a><p>城市道路</p></div>
+        <div><a href="javascript:;" data-href="/mobile/cameraSearch"><img src="/resources/static/images/advanceSearch/camera.png" alt="治安监控"></a><p>治安监控</p></div>
+        <div><a href="javascript:;" data-href="/mobile/busSearch"><img src="/resources/static/images/advanceSearch/bus.png" alt="公共交通"></a><p>公共交通</p></div>
+        <div><a href="javascript:;" data-href="/mobile/buildingSearch"><img src="/resources/static/images/advanceSearch/building.png" alt="房屋建筑"></a><p>房屋建筑</p></div>
+    </div>
+    <div class="advancedSearch-content-box">
+        <div><a href="javascript:;" data-href="/mobile/infrastructureSearch"><img src="/resources/static/images/advanceSearch/infrastructure.png" alt="基础设施"></a><p>基础设施</p></div>
+        <div><a href="javascript:;" data-href="/mobile/eFenceSearch"><img src="/resources/static/images/advanceSearch/eFence.png" alt="电子围栏"></a><p>电子围栏</p></div>
+        <div><a href="javascript:;" data-href="/mobile/wifiSearch"><img src="/resources/static/images/advanceSearch/wifi.png" alt="热点wifi"></a><p>热点wifi</p></div>
+        <div><a href="javascript:;" data-href="/mobile/businessSearch"><img src="/resources/static/images/advanceSearch/business.png" alt="商业场所"></a><p>商业场所</p></div>
+    </div>
+    <div class="advancedSearch-content-box">
+        <div><a href="javascript:;" data-href="/mobile/publicSearch"><img src="/resources/static/images/advanceSearch/public.png" alt="公共服务"></a><p>公共服务</p></div>
+        <div class="hide"><a href="javascript:;" data-href="/mobile/govOfficeSearch"><img src="/resources/static/images/advanceSearch/govOffice.png" alt="政府单位"></a><p>政府单位</p></div>
+        <div class="hide"><a href="javascript:;" data-href="search_public.html"><img src="/resources/static/images/advanceSearch/public.png" alt="公共服务"></a><p>公共服务</p></div>
+        <div class="hide"><a href="javascript:;" data-href="search_public.html"><img src="/resources/static/images/advanceSearch/public.png" alt="公共服务"></a><p>公共服务</p></div>
+    </div>
+</div>
+<script src="/resources/lib/zepto.min.js"></script>
+<script src="/resources/static/js/setDomain.js"></script>
+<script>
+    $(function () {
+        var doc = $(parent.document);
+        $(".advancedSearch-content-box").on("tap", "a", function(){
+            doc.find("#page").attr("src", $(this).data("href")).show();
+        });
+        doc.find(".drag_bar").text("高级搜索");
+    });
+</script>
+</body>
+</html>

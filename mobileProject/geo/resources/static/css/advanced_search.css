@@ -1,0 +1,24 @@
+body{
+    background-color: #FFFFFF;
+}
+/*高级搜索*/
+.advancedSearch-content-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.48rem;
+}
+
+.advancedSearch-content-box>div{
+    width: 1rem;
+    font-size: 0.24rem;
+    margin: 0.12rem 0;
+}
+
+.advancedSearch-content a{
+    width: 0.86rem;
+    margin-bottom: 0.1rem;
+}
+
+.advancedSearch-content img{
+    width: 100%;
+}

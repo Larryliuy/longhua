@@ -1,0 +1,129 @@
+/*搜索页面头部标题*/
+header{
+    height: 1rem;
+    color: #3d3d3d;
+    line-height: 1rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+}
+
+.back{
+    position: absolute;
+}
+
+.back img{
+    width: 0.12rem;
+    margin-right: 0.1rem;
+}
+
+.title{
+    font-size: 0.34rem;
+}
+/*搜索页面表单*/
+section{
+    position: absolute;
+    width: 100%;
+    top: 1.13rem;
+    bottom: 0;
+    left: 0;
+}
+
+.form-group{
+    margin-top: 0.12rem;
+}
+
+.form-group input, .form-group select{
+    height: 0.75rem;
+}
+
+.submit{
+    height: 0.85rem;
+    color: #FFFFFF;
+    font-size: 0.34rem;
+    background-color: #2FA1DB;
+    letter-spacing: 0.12rem;
+    margin-top: 0.6rem;
+}
+
+#areaId,#unitId,#roadId{
+    display: none;
+}
+
+/*选择区域*/
+.select{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: none;
+    height: 7.5rem;
+    color: #666666;
+    position: fixed;
+    padding: 0 0.32rem;
+    background-color: #FFFFFF;
+    border-top: 1px solid #C9C9C9;
+}
+
+.select-bar{
+    display: flex;
+    justify-content: space-between;
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+
+.select-content{
+    height: 6.7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-title{
+    height: 0.6rem;
+    line-height: 0.6rem;
+    border-bottom: 0.01rem solid #C9C9C9;
+}
+
+.select-title li{
+    display: inline-block;
+    padding: 0 0.1rem;
+    text-align: center;
+    max-width: 20%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.select-list{
+    position: relative;
+    flex: 1;
+    overflow-y: scroll;
+    padding-top: 0.16rem;
+}
+
+.select-list li{
+    padding: 0.12rem 0;
+}
+
+.cur{
+    border-bottom: 0.04rem solid #2FA1DB;
+}
+
+.target{
+    color: #2FA1DB;
+}
+
+/*道路联想*/
+.list{
+    position: relative;
+}
+
+.roadList{
+    background-color: #EEEEEE;
+    letter-spacing: 1px;
+    width: 100%;
+    position: absolute;
+    top: 1.3rem;
+}
+
+.roadList li{
+    padding: 0.05rem;
+}

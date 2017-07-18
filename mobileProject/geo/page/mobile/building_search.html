@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>房屋建筑</title>
+    <link rel="stylesheet" href="/resources/lib/pure-min.css">
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/searchPage.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="back">
+        <img src="/resources/static/images/arrow-left.png" alt="返回">
+        <span>返回</span>
+    </div>
+    <p class="title">建筑房屋搜索</p>
+</header>
+<section>
+    <form class="pure-form" data-action="/building/search" method="post">
+        <div class="form-group pure-g">
+            <label for="searchKey" class="pure-u-1">关键字</label>
+            <input id="searchKey" class="pure-u-1" name="searchKey" type="text">
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="contactName" class="pure-u-1">登记人</label>
+            <input id="contactName" class="pure-u-1" name="contactName" type="text">
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="areaName" class="pure-u-1">区域</label>
+            <input id="areaId" class="none" name="areaId" type="text">
+            <input id="areaName" class="pure-u-1" name="areaName" type="text" readonly>
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="typeId" class="pure-u-1">建筑类型</label>
+            <select id="typeId" class="pure-u-1 dynaSelect" name="typeId" data-url="/building/type/list">
+                <option value="">请选择建筑类型</option>
+            </select>
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="minH" class="pure-u-1">建筑高度</label>
+            <input type="text" id="minH" class="pure-u-5-12" name="minH">
+            <span class="pure-u-1-12 mid">一</span>
+            <input type="text" id="maxH" class="pure-u-5-12" name="maxH">
+            <span class="pure-u-1-12 mid">m</span>
+        </div>
+
+        <div class="form-group pure-g">
+            <label for="minUseArea" class="pure-u-1">建筑面积</label>
+            <input type="text" id="minUseArea" class="pure-u-5-12" name="minUseArea">
+            <span class="pure-u-1-12 mid">一</span>
+            <input type="text" id="maxUseArea" class="pure-u-5-12" name="maxUseArea">
+            <span class="pure-u-1-12 mid">m²</span>
+        </div>
+
+        <div class="form-group pure-g">
+            <span class="pure-u-1 pure-button submit">搜索</span>
+        </div>
+    </form>
+</section>
+<div id="select-area" class="select">
+    <div class="select-bar">
+        <span class="cancel">取消</span>
+        <p class="title">选择区域</p>
+        <span class="sure">确定</span>
+    </div>
+    <div class="select-content">
+        <ul class="select-title">
+        </ul>
+        <div class="select-list">
+        </div>
+    </div>
+</div>
+<script src="/resources/lib/zepto.min.js"></script>
+<script src="/resources/static/js/plugin.js"></script>
+<script src="/resources/static/js/setDomain.js"></script>
+<script src="/resources/static/js/searchPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+document.writeln("			<div class=\'header\'>");
+document.writeln("				<div class=\'header_logo\'>");
+document.writeln("					<a href=\'#\'><img class=\'logo\' src=\'/resources/img/img_long/logo.png\' /></a>");
+document.writeln("					<p class=\'clear\'><b>龙华新区三维警用地理信息系统</b></p>");
+document.writeln("				</div>");
+document.writeln("				<div class=\'header_icon\'>");
+document.writeln("					<ul class=\'header_icon_ul\'>");
+document.writeln("						<li>");
+document.writeln("							<img src=\'/resources/img/img_long/message.png\' />");
+document.writeln("							<span class=\'img/img_count\'></span>");
+document.writeln("						</li>");
+document.writeln("						<li>");
+document.writeln("							<img src=\'/resources/img/img_long/shezhi.png\' />");
+document.writeln("						</li>");
+document.writeln("						<li>");
+document.writeln("							<img src=\'/resources/img/img_long/zhuxiao.png\' />");
+document.writeln("						</li>");
+document.writeln("					</ul>");
+document.writeln("				</div>");
+document.writeln("			</div>");

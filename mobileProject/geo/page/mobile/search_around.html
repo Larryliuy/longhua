@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>周边搜索</title>
+    <link rel="stylesheet" href="/resources/static/css/common.css">
+    <link rel="stylesheet" href="/resources/static/css/search_around.css">
+    <script src="/resources/lib/setRem.min.js"></script>
+</head>
+<body>
+<header class="justify">
+    <div class="back mid">
+        <img src="/resources/static/images/arrow-left.png" alt="返回">
+    </div>
+    <div class="input-group justify">
+        <div class="icon mid">
+            <img src="/resources/static/images/search2.png" alt="搜索">
+        </div>
+        <form data-action="/location/near" method="post" autocomplete="off">
+            <input type="text" class="none" id="lon" name="lon">
+            <input type="text" class="none" id="lat" name="lat">
+            <input type="text" class="none" id="z" name="z">
+            <input type="text" class="searchIpt" name="distance" placeholder="请输入搜索半径（M）">
+        </form>
+    </div>
+    <button class="searchBtn">搜索</button>
+</header>
+<section class="typeBoxs">
+
+</section>
+<script src="/resources/lib/zepto.min.js"></script>
+<script src="/resources/static/js/plugin.js"></script>
+<script src="/resources/static/js/setDomain.js"></script>
+<script src="/resources/static/js/search_around.js"></script>
+</body>
+</html>
