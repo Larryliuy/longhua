@@ -1,0 +1,158 @@
+html{
+    background-color: #f6f5f5;
+}
+body,ul{
+    margin: 0rem;
+    padding: 0rem;
+}
+body{
+    background-image: url("../../../resources/img/mobile/patrol_bg.png");
+    background-repeat: no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+header{
+    text-align: center;
+    width: 100%;
+    height: 2.044rem;
+    line-height: 2rem;
+    /*background-color: #FFFFFF;*/
+}
+.backBtn{
+    position: absolute;
+    top: 0.825rem;
+    left: 1.3rem;
+    display: inline-block;
+    font-size: 0.622rem;
+    line-height: 0.622rem;
+    color: #FFFFFF;
+}
+.backBtn > a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.backBtn img{
+    position: absolute;
+    left: -0.625rem;
+    width: 0.333rem;
+    height: 0.622rem;
+}
+.title{
+    display: inline-block;
+    font-size: 0.711rem;
+    color: #FFFFFF;
+}
+.patrol{
+    position: absolute;
+    font-size: 0.622rem;
+    top: 0.2rem;
+    right: 0.622rem;
+    color: #FFFFFF;
+}
+.direaction{
+    /*position: absolute;*/
+    text-align: center;
+    margin-top: 2rem;
+    color: #FFFFFF;
+}
+
+.leftUp{
+    position: absolute;
+    top: 3rem;
+    left: 0.667rem;
+    font-size: 0.622rem;
+    color: #FFFFFF;
+}
+.rightUp{
+    position: absolute;
+    top: 3rem;
+    right: 0.667rem;
+    font-size: 0.622rem;
+    text-align: right;
+    color: #FFFFFF;
+}
+.rightDown{
+    position: absolute;
+    bottom: 0.667rem;
+    right: 0.667rem;
+    font-size: 0.622rem;
+}
+.rightDown > img{
+    width: 1.467rem;
+    height: 0.8rem;
+}
+.leftDown{
+    position: absolute;
+    bottom: 0.667rem;
+    left: 0.667rem;
+    font-size: 0.622rem;
+    color: #FFFFFF;
+}
+.leftDown > img{
+    width: 0.75rem;
+    height: 0.8rem;
+}
+.patrolBtn{
+    position: absolute;
+    font-size: 0.8rem;
+    color: #FFFFFF;
+    width: 5.02rem;
+    height: 1.867rem;
+    top: 23rem;
+    left: 5rem;
+    border: #61b8e1 1px solid;
+    border-radius: 2px;
+    text-align: center;
+    background-image: url("../../../resources/img/mobile/patrol_begin.png");
+    background-repeat: no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.patrolBtn > p{
+    padding: 0;
+    margin: 0;
+    line-height: 1.867rem;
+    letter-spacing: 0.2rem;
+}
+.troyBox{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    /*margin-top: 2.5rem;*/
+}
+.scaleOuter{
+    position: absolute;
+    width: 14.8rem;
+    height: 14.8rem;
+    background-image: url("../../../resources/img/mobile/scale_outer.png");
+    background-repeat: no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    left:0.622rem;
+    /*top: 1.6rem;*/
+}
+.troy{
+    position: absolute;
+    width: 12.489rem;
+    height: 12.489rem;
+/*    background-image: url("../../../resources/img/mobile/troy.png");
+    background-repeat: no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;*/
+    top:1.4rem;
+    left:1.75rem;
+}
+.scaleInner{
+    position: absolute;
+    width: 9.6rem;
+    height: 9.6rem;
+    background-image: url("../../../resources/img/mobile/scale_inner.png");
+    background-repeat: no-repeat;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    left:1.45rem;
+    top:1.35rem;
+}
+#deg{
+    margin-top: 5.5rem;
+}

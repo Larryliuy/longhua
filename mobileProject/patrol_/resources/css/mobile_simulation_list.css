@@ -1,0 +1,97 @@
+html{
+    background-color: #f6f5f5;
+    font-size: 125%;
+}
+body,ul{
+    margin: 0rem;
+    padding: 0rem;
+}
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+header{
+    text-align: center;
+    width: 100%;
+    height: 2.044rem;
+    line-height: 2rem;
+    background-color: #FFFFFF;
+}
+.backBtn{
+    position: absolute;
+    top: 0.825rem;
+    left: 1.3rem;
+    display: inline-block;
+    font-size: 0.622rem;
+    line-height: 0.622rem;
+    color: #666666;
+}
+.backBtn > a{
+    text-decoration: none;
+    color: #666666;
+}
+.backBtn img{
+    position: absolute;
+    left: -0.625rem;
+    width: 0.333rem;
+    height: 0.622rem;
+}
+.title{
+    display: inline-block;
+    font-size: 0.711rem;
+}
+.addType{
+    position: absolute;
+    font-size: 0.622rem;
+    top: 0.2rem;
+    right: 1rem;
+    color: #666666;
+}
+.simulationTypeList{
+    margin-top: 0.27rem;
+}
+.simulationType{
+    list-style-type: none;
+    width: 100%;
+}
+.item{
+    width: 91.7%;
+    height: 2.05rem;
+    line-height: 2.05rem;
+    display:flex;
+    justify-content: space-between;
+    padding:0 4.15%;
+    background-color: #FFFFFF;
+    margin-top: 0.09rem;
+}
+.item img{
+    width: 0.13rem;
+    height: 0.622rem;
+    padding: 0.2rem 0.6rem;
+}
+.itemTitle{
+    font-size: 0.622rem;
+    color: #666666;
+}
+/*操作弹窗*/
+.st_edit{
+    display: none;
+    position: absolute;
+    top: 3rem;
+    right: 8.3%;
+    width: 4.267rem;
+    height: 6.5rem;
+    background-color: #FFFFFF;
+    font-size: 0.53rem;
+    color: #666666;
+    text-align: center;
+    background-color: #e9e9e9;
+}
+.st_edit ul{
+    list-style-type: none;
+}
+.st_edit > ul > li{
+    height: 2.133rem;
+    line-height: 2.133rem;
+}

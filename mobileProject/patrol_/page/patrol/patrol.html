@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="../../../resources/css/mobile_compass.css">
+    <script src="../../../resources/libs/zepto.min.js"></script>
+    <script src="../../../resources/coms/setHtmlFontSize.js"></script>
+    <title>巡逻</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <span class="backBtn"><a href="javascript:history.go(-1)"><img src="../../../resources/img/mobile/back_w.png"> 返回</a></span>
+        <span class="title">巡逻</span>
+        <span class="patrol">巡逻记录</span>
+    </header>
+    <div class="direaction">
+        <p id="direactionp">南</p>
+    </div>
+    <div class="leftUp">
+        <p>北纬</p>
+        <p id="lat">22°32'52"</p>
+    </div>
+    <div class="rightUp">
+        <p>东经</p>
+        <p id="lon">22°32'5"</p>
+    </div>
+    <!--<div class="leftDown">
+        <img src="../../../resources/img/mobile/gps.png">
+        <span>GPS</span>
+    </div>
+    <div class="rightDown">
+        <img src="../../../resources/img/mobile/gps_on.png">
+    </div>-->
+
+    <div class="troyBox">
+        <div class="scaleOuter">
+        </div>
+        <div class="troy">
+            <div id="scaleInner" style="transform:rotate(0deg)" class="scaleInner">
+            </div>
+            <p id="deg"></p>
+        </div>
+    </div>
+    <div class="patrolBtn">
+        <p>开始巡逻</p>
+    </div>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6yAoynmTPNlTBa8z1X4LfwGE"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    console.log('Android：'+isAndroid);
+    console.log('iOS：'+isiOS);
+
+    $(function () {
+        var winW = window.innerWidth || window.screen.width,
+            winH = document.innerHeight || window.screen.height,
+            currentLat = 0,
+            currentLon = 0;
+        $('body').css('width',winW);
+        console.log("docH:"+winH);
+        console.log("winH:"+window.innerHeight);
+        console.log("screH:"+window.screen.height);
+        console.log("scroH:" + document.body.scrollTop);
+        $('body').css('height',winH);
+        var leftW = winW/2 - $('.patrolBtn').width()/2;
+        $('.patrolBtn').css('left',leftW);
+        function formatDegree(value) {
+            ///<summary>将度转换成为度分秒</summary>
+
+            value = Math.abs(value);
+            var v1 = Math.floor(value);//度
+            var v2 = Math.floor((value - v1) * 60);//分
+            var v3 = Math.round((value - v1) * 3600 % 60);//秒
+            return v1 + '°' + v2 + '\'' + v3 + '"';
+        }
+        var getPositionInterval = null;
+        function getPosition() {
+            console.log(arguments[0]);
+            if(arguments[0]) {
+                getPositionInterval = setInterval(function () {
+                    alert('gps');
+                    //gps
+                    if (isiOS) {
+                        var geolocation = new BMap.Geolocation();
+                        geolocation.getCurrentPosition(function (r) {
+                            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                                var mk = new BMap.Marker(r.point);
+                                currentLat = r.point.lat;
+                                currentLon = r.point.lng;
+                                cookiecurLat = currentLat;
+                                curLng = currentLon;
+                                var pt = new BMap.Point(currentLon, currentLat);
+                                var geoc = new BMap.Geocoder();
+                                geoc.getLocation(pt, function (rs) {
+                                    var addComp = rs.addressComponents;
+                                    cookiecurLat = currentLat;
+                                    curLng = currentLon;
+
+                                    var addComp = rs.addressComponents;
+                                    var city = addComp.city;
+                                    var texts = addComp.district + "-" + addComp.street + "-" + addComp.streetNumber;
+                                    //获取地理位置成功，跳转
+                                    var c_lat = formatDegree(currentLat);
+                                    var c_lon = formatDegree(currentLon);
+                                    console.log("BMAPAPI:" + c_lat + ' ' + c_lon);
+                                    document.getElementById('lon').innerHTML = c_lon;
+                                    document.getElementById('lat').innerHTML = c_lat;
+
+                                });
+                            }
+                        });
+                    } else {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            console.log('position:' + position);
+                            console.log("H5API:" + "纬度：" + position.coords.latitude + "；经度：" + position.coords.longitude + "指北针：" + position.coords.heading);
+                            currentLat = position.coords.latitude;
+                            currentLon = position.coords.longitude;
+                            headingAdeg = position.heading;
+                            var c_lat = formatDegree(position.coords.latitude);
+                            var c_lon = formatDegree(position.coords.longitude);
+                            document.getElementById('lon').innerHTML = c_lon;
+                            document.getElementById('lat').innerHTML = c_lat;
+                        }, function (error) {/*alert(error.message);*/
+                            console.log(error.message);
+                        });
+                    }
+                    alert('lat:' + currentLat + ' \r' + 'lon:' +  currentLon);
+                }, arguments[1] || 5000);
+            }else{
+                clearInterval(getPositionInterval);
+            }
+        }
+
+
+        //alpha
+        /*if(isAndroid){
+         alert('Android');
+         }*/
+        var scaleInner = document.getElementById("scaleInner");
+        var headingDeg = 0;
+        var headingAdeg = 0;
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function (event) {
+//                alert(event.webkitCompassHeading?event.webkitCompassHeading:headingAdeg);
+                var heading = 0;
+                if ('webkitCompassHeading' in event) {
+                    // 由于实际是指北的，需要反转角度，下同
+                    heading = 360 - event.webkitCompassHeading;
+                } else if (window.chrome) {
+                    // chrome浏览器的event.alpha是错误的，计算出来的值也是错的，需要修正
+                    heading = event.alpha - 270;
+                    if (heading < 0) heading += 360;
+                } else {
+                    if (isAndroid) {
+                        // 安卓浏览器的event.alpha直接可用，这样反应快点
+                        heading = 270 + event.alpha;
+                        heading -= 360;
+                        if(heading > 360){
+                            heading -= 360;
+                        }
+                        if(heading < 0){
+                            heading +=360;
+                        }
+                    } else {
+                        // 按照w3c标准规则计算compass heading
+                        heading = 360 - compassHeading(event.alpha, event.beta, event.gamma);
+                    }
+                    // TODO: 火狐始终减去180
+//
+                }
+                scaleInner.style.webkitTransform = "rotate(" + (heading+180) + "deg)";
+                scaleInner.style.MozTransform = 'rotate(' + (heading+180) + 'deg)';
+                scaleInner.style.transform = "rotate(" + (heading+180) + "deg)";
+                //IOS计算方式
+                var headDeg = 0;
+                if(event.webkitCompassHeading){
+                    document.getElementById('deg').innerHTML = Math.round(360 - heading);
+                    headDeg = Math.round(360 - heading);
+                }else{
+                    document.getElementById('deg').innerHTML = Math.round(heading);
+                    headDeg = Math.round(heading+180);
+                    if(headDeg > 360)headDeg-=360;
+                }
+                //安卓Android计算方式
+                /*if(event.webkitCompassHeading) {
+                 // Apple works only with this, alpha doesn't work
+                 headingDeg = event.webkitCompassHeading+180;
+                 scaleInner.style.webkitTransform = "rotate(" + (360-headingDeg) + "deg)";
+                 scaleInner.style.transform = "rotate(" + (360-headingDeg) + "deg)";
+                 headingDeg = event.webkitCompassHeading;
+                 document.getElementById('deg').innerHTML = Math.round(headingDeg);
+                 headDeg = Math.round(headingDeg);
+                 } else if(window.chrome){
+                 headingAdeg = event.alpha - 270;
+                 if(headingAdeg<0){
+                 headingAdeg +=360;
+                 }
+                 scaleInner.style.webkitTransform = "rotate(" + headingAdeg + "deg)";
+                 scaleInner.style.transform = "rotate(" + headingAdeg + "deg)";
+                 document.getElementById('deg').innerHTML = Math.round(headingAdeg);
+                 headDeg = Math.round(headingAdeg);
+                 } else {
+
+                 // 按照w3c标准规则计算compass heading
+                 //                    heading = 360 - compassHeading(event.alpha, event.beta, event.gamma);
+                 if(headingAdeg === 0){
+                 headingAdeg = event.alpha;
+                 }
+                 scaleInner.style.webkitTransform = "rotate(" + (360-headingAdeg) + "deg)";
+                 scaleInner.style.transform = "rotate(" + (360-headingAdeg) + "deg)";
+                 var alpha = event.alpha - headingAdeg;
+                 document.getElementById('deg').innerHTML = Math.round(alpha);// Math.round(headingAdeg);
+                 headDeg = Math.round(alpha);
+                 }*/
+
+                var direactionp = document.getElementById('direactionp');
+                if (headDeg > 0 && headDeg < 23 || headDeg < 360 && headDeg > 337) {
+                    direactionp.innerHTML = '北';
+                } else if (headDeg > 23 && headDeg < 67) {
+                    direactionp.innerHTML = '东北';
+                } else if (headDeg > 67 && headDeg < 113) {
+                    direactionp.innerHTML = '东';
+                } else if (headDeg > 113 && headDeg < 157) {
+                    direactionp.innerHTML = '东南';
+                } else if (headDeg > 157 && headDeg < 203) {
+                    direactionp.innerHTML = '南';
+                } else if (headDeg > 203 && headDeg < 247) {
+                    direactionp.innerHTML = '西南';
+                } else if (headDeg > 247 && headDeg < 292) {
+                    direactionp.innerHTML = '西';
+                } else if(headDeg > 292 && headDeg < 337) {
+                    direactionp.innerHTML = '西北';
+                }
+            });
+        }else {
+            alert('不支持方向识别');
+        }
+        if (!('oncompassneedscalibration' in window)) {
+            window.addEventListener("compassneedscalibration", function (event) {
+                alert('您的罗盘需要校准，请将设备沿数字8方向移动。');
+                event.preventDefault();
+            }, true);
+        }else {
+            alert('不支持罗盘校准');
+        }
+
+        var interval = null ;
+        function sendPosition(isPatrol) {
+            var n = 0;
+            if(isPatrol){
+                interval = setInterval(function () {
+                    console.log(n+++':\n' + 'lat ' + currentLat + ' \n' + 'lon ' + currentLon);
+                    $.post('/patrol/position',{userId:1,lat:currentLat,lon:currentLon},function (data) {
+                        var dataJson = JSON.parse(data);
+                        console.log(data);
+                        /*if(dataJson.state !==100){
+                            console.log(data.state);
+                        }*/
+                    })
+                },5000);
+            }else{
+                clearInterval(interval);
+            }
+        }
+/*        $.post('/patrol/endById',{id:8},function (data) {
+            console.log(data);
+        });*/
+        $('.patrolBtn').on('touchend',function (e) {
+            var curText = $(this).find('p').text(),
+                text = curText == '开始巡逻'?'结束巡逻':'开始巡逻';
+            $(this).find('p').text(text);
+            var url =  $(this).css('background-image').indexOf('begin') != -1?'url(\'../../../resources/img/mobile/patrol_end.png\')':'url(\'../../../resources/img/mobile/patrol_begin.png\')';
+            $(this).css('background-image',url);
+            if(curText == '开始巡逻'){
+                $.ajax({
+                    url:'/patrol/start',
+                    type:'post',
+                    data:{userId:1},
+                    async:false,
+                    success:function (response) {
+                        getPosition(true);
+                        sendPosition(true);
+                    }
+                })
+            }else{
+                $.ajax({
+                    url:'/patrol/end',
+                    type:'post',
+                    data:{userId:1},
+                    async:false,
+                    success:function (response) {
+                        getPosition(false);
+                        sendPosition(false);
+                        console.log(response);
+                    }
+                })
+            }
+        });
+        $('.patrol').on('touchend',function (e) {
+            location.href = '/patrol/page/patrolList' ;
+        });
+        getPosition(true,1000);
+        setTimeout(function () {
+            getPosition(false);
+        },1000);
+    });
+</script>
+</body>
+</html>

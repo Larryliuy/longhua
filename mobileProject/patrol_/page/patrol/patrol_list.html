@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="../../../resources/css/mobile_simulation_list.css">
+    <link rel="stylesheet" href="../../../resources/css/zepto.mdatetimer.css">
+    <script src="../../../resources/libs/zepto.min.js"></script>
+    <script src="../../../resources/libs/zepto.mdatetimer.js"></script>
+    <script src="../../../resources/coms/setHtmlFontSize.js"></script>
+    <style>
+        .searchBox{
+            /*width: 100%;*/
+            float: right;
+            margin-top: 0.5rem !important;
+        }
+        .searchBox span{
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 0.511rem;
+            color: #999999;
+        }
+        .searchBox button{
+            font-size: 0.622rem;
+            width: 2.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            margin-right: 0.66rem;
+            background-color: #2d9fd8;
+            border: none;
+            border-radius: 5px;
+            color: #FFFFFF;
+        }
+        .line{
+            border: none;
+            border-bottom: 1px solid #E0E0E0;
+            width: 75%;
+            margin-left: 0.622rem;
+            margin-top: 2.0rem;
+        }
+        .recordCount{
+            font-size: 0.511rem;
+            color: #999999;
+            margin-left: 0.622rem;
+        }
+        .record_list{
+            margin-left: 0.622rem;
+            width: 91%;
+            /*height: 100%;*/
+        }
+        .record_list > li{
+            display: flex;
+            justify-content: space-between;
+            height: 2.13rem;
+            font-size: 0.622rem;
+            color: #666666;
+            background-image: url("../../../resources/img/mobile/patrol_open.png");
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-position-y: center;
+            background-size: 0.311rem 0.622rem;
+        }
+        /*.searchBox label{
+            width: 100%;
+            height: 100%;
+        }*/
+    </style>
+    <title>巡逻记录</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <span class="backBtn"><a href="javascript:history.go(-1)"><img src="../../../resources/img/mobile/back.png"> 返回</a></span>
+        <span class="title">巡逻记录</span>
+    </header>
+    <div class="searchBox">
+        <span class="s_time" ><label for="picktime"><input style="border: none;background: none;width: 70%;height: 1rem" id="picktime" name="picktime" disabled/>选择时间</label></span><button>查询</button>
+    </div>
+    <div class="line"></div>
+    <p class="recordCount">共有125条记录</p>
+    <ul class="record_list">
+        <li><p>2017-7-8 17:30</p></li>
+        <li><p>2017-7-8 10:17</p></li>
+        <li><p>2017-7-8 09:00</p></li>
+    </ul>
+</div>
+<script>
+    var config = {
+        mode : 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
+        format : 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+        years : [2000, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017], //年份数组
+        nowbtn : false, //是否显示现在按钮
+        onOk : function(){
+            //alert('OK');
+            var mpYear = $('.mt_year'),
+                mpMonth = $('.mt_month'),
+                mpDay = $('.mt_day');
+            var year = mpYear.find('.selected').data('year');
+            var month = mpMonth.find('.selected').data('month');
+            var day = mpDay.find('.selected').data('day');
+            console.log(year + '-' + month + '-' + day);
+        },  //点击确定时添加额外的执行函数 默认null
+        onCancel : function(){
+            // alert('A');
+        } //点击取消时添加额外的执行函数 默认null
+    };
+
+    $('#picktime').mdatetimer(config);
+    
+    //获取巡逻记录userId:1,status:2,pageNo:1
+    $.post('/patrol/search',{userId:1,pageNo:1},function (data) {
+        var dataJson = JSON.parse(data).result;
+        console.log(dataJson);
+        var domStr = '';
+        for(var i = 0,len = dataJson.length;i<len;i++){
+            domStr += '<li value='+ dataJson[i].id +'><p>'+ dataJson[i].startTime +'</p></li>'
+        }
+        $('.record_list').empty().append(domStr).on('tap',function (e) {
+            var patrolId = $(e.target).attr('value') || $(e.target).parent().attr('value');
+            console.log(patrolId);
+        });
+    })
+    
+</script>
+</body>
+</html>

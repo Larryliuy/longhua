@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web消息测试页面</title>
+<script type="text/javascript" src="/resources/LongmapWebMessage.js"></script>
+<script type="text/javascript" src="/resources/LongmapWebSocket.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var message = new LongmapWebMessage("127.0.0.1:9608", "/message/ws")
+	message.conn(message);
+	message.success = function(){
+	    console.log("websocket连接上");
+	}
+	message.connFail = function(event) {
+	    console.log("连接失败");
+	}
+	message.connClose = function(){
+	    console.log("连接关闭");
+	}
+	message.onMsg = function(event) {
+	    console.log("收到消息:"+event.data);
+	}
+}
+</script>
+</head>
+<body>
+	
+</body>
+</html>
